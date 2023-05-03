@@ -1,13 +1,19 @@
-﻿namespace TwitchRaid
+﻿using TwitchRaid.Connection;
+using TwitchRaid.Handlers;
+using TwitchRaid.Models;
+
+namespace TwitchRaid
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Setup();
+            Setting setting = Setup();
+            
+            Program program = new();
         }
 
-        private static void Setup()
+        private static Setting Setup()
         {
             string initPath = "G://TwitchRaid//TwitchRaid//TwitchRaid//Init.txt";
             TxtFileHandler filehandler = new();
@@ -18,6 +24,9 @@
                 filehandler.WriteFile(initPath);
             }
 
+            Setting setting = filehandler.ReadFile(initPath);
+            return setting;
         }
+
     }
 }
