@@ -15,7 +15,7 @@ namespace TwitchRaid
 
         private static Setting Setup()
         {
-            string initPath = "G://TwitchRaid//TwitchRaid//TwitchRaid//Init.txt";
+            string initPath = AppDomain.CurrentDomain.BaseDirectory + "Init.txt";
             TxtFileHandler filehandler = new();
 
             if (!filehandler.CheckIfFileExists(initPath))
