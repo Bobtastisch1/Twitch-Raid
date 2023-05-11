@@ -11,6 +11,12 @@ namespace TwitchRaid
             Setting setting = Setup();
             
             Program program = new();
+
+            Token token = new ();
+
+            token.Tokenhandler(setting);
+
+            
         }
 
         private static Setting Setup()

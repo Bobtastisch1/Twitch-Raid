@@ -35,6 +35,7 @@ namespace TwitchRaid.Handlers
             {
                 sw.WriteLine("ClientId:");
                 sw.WriteLine("ClientSecret:");
+                sw.WriteLine("YourStreamerName:");
             }
         }
 
@@ -55,7 +56,6 @@ namespace TwitchRaid.Handlers
                     {
                         var key = keyValue[0].Trim();
                         var value = keyValue[1].Trim();
-
                         switch (key)
                         {
                             case "ClientId":
@@ -63,6 +63,9 @@ namespace TwitchRaid.Handlers
                                 break;
                             case "ClientSecret":
                                 setting.ClientSecret = value;
+                                break;
+                            case "YourStreamerName":
+                                setting.YourStreamerName = value;
                                 break;
                         }
                     }
@@ -73,7 +76,6 @@ namespace TwitchRaid.Handlers
                 // Handle any errors that might occur
                 Console.WriteLine("Error: " + e.Message);
             }
-
             return setting;
         }
     }
