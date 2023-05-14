@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwitchRaid.Models
 {
-    internal class Users
+    internal class UsersDTO
     {
         public List<User> data { get; set; }
     }

@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TwitchRaid.Models;
 
-namespace TwitchRaid.Connection
+namespace TwitchRaid.Controller
 {
     internal class Token
     {
@@ -44,7 +44,7 @@ namespace TwitchRaid.Connection
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Access_Token Error" + ex.Message);
+                    Console.WriteLine("Access_Token Error " + ex.Message);
                 }
             }
 
@@ -56,8 +56,6 @@ namespace TwitchRaid.Connection
             string paramsKeys;
 
             paramsKeys = "client_id=" + setting.ClientID + "&client_secret=" + setting.ClientSecret + "&grant_type=client_credentials";
-
-            Console.WriteLine(paramsKeys);
 
             return paramsKeys;
         }

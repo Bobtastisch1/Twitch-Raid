@@ -1,4 +1,4 @@
-﻿using TwitchRaid.Connection;
+﻿using TwitchRaid.Controller;
 using TwitchRaid.Handlers;
 using TwitchRaid.Models;
 
@@ -14,9 +14,11 @@ namespace TwitchRaid
 
             Token token = new ();
 
-            token.Tokenhandler(setting);
+            string tokennew = token.Tokenhandler(setting).Result;
 
-            
+            GetUser users = new();
+
+            List<User> usersnew = users.GetUsers(setting, tokennew).Result;
         }
 
         private static Setting Setup()
