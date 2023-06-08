@@ -8,9 +8,9 @@ namespace TwitchRaid
     {
         public static void Main(string[] args)
         {
-            Setting setting = Setup();
+            Program start = new();
             
-            Program program = new();
+            Setting setting = start.Setup();
 
             Token token = new ();
 
@@ -18,10 +18,14 @@ namespace TwitchRaid
 
             GetUser users = new();
 
-            List<User> usersnew = users.GetUsers(setting, tokennew).Result;
+            List<User> userId = users.GetUsers(setting, tokennew).Result;
+
+            GetChannelFollower followers = new();
+
+            List<Follower> follwerslogin = followers.GetChannelFollowers(setting).Result;
         }
 
-        private static Setting Setup()
+        private Setting Setup()
         {
             string initPath = AppDomain.CurrentDomain.BaseDirectory + "Init.txt";
             TxtFileHandler filehandler = new();
@@ -35,6 +39,7 @@ namespace TwitchRaid
             Setting setting = filehandler.ReadFile(initPath);
             return setting;
         }
+
 
     }
 }

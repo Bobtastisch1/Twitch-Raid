@@ -11,6 +11,8 @@ namespace TwitchRaid.Models
         public string ClientID { get; set; }
         public string ClientSecret { get; set; }
         public string YourStreamerName { get; set; }
+        public string user_id { get; set; }
+        public string oauth { get; set; }
 
     }
 }

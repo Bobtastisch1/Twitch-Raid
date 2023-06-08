@@ -1,42 +1,38 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using TwitchRaid.Models;
 
 namespace TwitchRaid.Controller
 {
-    internal class GetUser
+    internal class GetChannelFollower
     {
-        public async Task<List<User>> GetUsers(Setting setting, string token)
+        public async Task<List<Follower>> GetChannelFollowers(Setting setting)
         {
             try
             {
-                string url = "https://api.twitch.tv/helix/users?login=" + setting.YourStreamerName;
+                string url = "https://api.twitch.tv/helix/channels/followers?broadcaster_id=" + setting.user_id + "&first=100";
                 HttpClient client = new();
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", setting.oauth);
                 client.DefaultRequestHeaders.Add("Client-Id", setting.ClientID);
 
                 HttpResponseMessage res = await client.GetAsync(url);
                 res.EnsureSuccessStatusCode();
                 string result = await res.Content.ReadAsStringAsync();
-                UsersDTO userDTO = JsonConvert.DeserializeObject<UsersDTO>(result);
-                List<User> users = userDTO.data;
+                FollowersDTO FollowersDTO = JsonConvert.DeserializeObject<FollowersDTO>(result);
+                List<Follower> follower = FollowersDTO.data;
 
-                setting.user_id = users[0].id;
-
-                return users;
+                return follower;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Get Users Error " + e.Message);
+                Console.WriteLine("Get Followers Error " + e.Message);
             }
 
             return null;

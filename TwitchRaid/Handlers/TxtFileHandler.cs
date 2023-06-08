@@ -36,6 +36,7 @@ namespace TwitchRaid.Handlers
                 sw.WriteLine("ClientId:");
                 sw.WriteLine("ClientSecret:");
                 sw.WriteLine("YourStreamerName:");
+                sw.WriteLine("oauth:");
             }
         }
 
@@ -67,13 +68,15 @@ namespace TwitchRaid.Handlers
                             case "YourStreamerName":
                                 setting.YourStreamerName = value;
                                 break;
+                            case "oauth":
+                                setting.oauth = value;
+                                break;
                         }
                     }
                 }
             }
             catch (Exception e)
             {
-                // Handle any errors that might occur
                 Console.WriteLine("Error: " + e.Message);
             }
             return setting;
