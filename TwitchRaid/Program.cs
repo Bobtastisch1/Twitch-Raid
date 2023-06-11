@@ -1,4 +1,5 @@
-﻿using TwitchRaid.Controller;
+﻿using System.Security.Cryptography.X509Certificates;
+using TwitchRaid.Controller;
 using TwitchRaid.Handlers;
 using TwitchRaid.Models;
 
@@ -20,9 +21,7 @@ namespace TwitchRaid
 
             List<User> userId = users.GetUsers(setting, tokennew).Result;
 
-            GetChannelFollower followers = new();
-
-            List<Follower> follwerslogin = followers.GetChannelFollowers(setting).Result;
+            start.EveryChannelFollower(setting);
         }
 
         private Setting Setup()
@@ -40,6 +39,12 @@ namespace TwitchRaid
             return setting;
         }
 
+        private void EveryChannelFollower(Setting setting)
+        {
+            GetChannelFollower followers = new();
+
+            List<Follower> follwerslogin = followers.GetChannelFollowers(setting).Result;
+        }
 
     }
 }

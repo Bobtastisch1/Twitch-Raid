@@ -14,7 +14,7 @@ namespace TwitchRaid.Controller
         public async Task<List<Follower>> GetChannelFollowers(Setting setting)
         {
             try
-            {
+            {         
                 string url = "https://api.twitch.tv/helix/channels/followers?broadcaster_id=" + setting.user_id + "&first=100";
                 HttpClient client = new();
 
@@ -22,13 +22,30 @@ namespace TwitchRaid.Controller
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", setting.oauth);
                 client.DefaultRequestHeaders.Add("Client-Id", setting.ClientID);
 
-                HttpResponseMessage res = await client.GetAsync(url);
-                res.EnsureSuccessStatusCode();
-                string result = await res.Content.ReadAsStringAsync();
-                FollowersDTO FollowersDTO = JsonConvert.DeserializeObject<FollowersDTO>(result);
-                List<Follower> follower = FollowersDTO.data;
+                bool hasPagination = true;
+                List<Follower> allFollowers = new List<Follower>();
 
-                return follower;
+                while (hasPagination)
+                {
+                    HttpResponseMessage res = await client.GetAsync(url);
+                    res.EnsureSuccessStatusCode();
+                    string result = await res.Content.ReadAsStringAsync();
+                    FollowersDTO FollowersDTO = JsonConvert.DeserializeObject<FollowersDTO>(result);
+                    List<Follower> followers = FollowersDTO.data;
+
+                    allFollowers.AddRange(followers);
+
+                    if (!string.IsNullOrEmpty(FollowersDTO.pagination.cursor))
+                    {
+                        url = url + "&after=" + FollowersDTO.pagination.cursor;
+                    }
+                    else
+                    {
+                        hasPagination = false;
+                    }
+                }
+
+                return allFollowers;
             }
             catch (Exception e)
             {
