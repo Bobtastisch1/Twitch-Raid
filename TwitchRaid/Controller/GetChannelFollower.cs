@@ -31,9 +31,8 @@ namespace TwitchRaid.Controller
                     res.EnsureSuccessStatusCode();
                     string result = await res.Content.ReadAsStringAsync();
                     FollowersDTO FollowersDTO = JsonConvert.DeserializeObject<FollowersDTO>(result);
-                    List<Follower> followers = FollowersDTO.data;
 
-                    allFollowers.AddRange(followers);
+                    allFollowers.AddRange(FollowersDTO.data);
 
                     if (!string.IsNullOrEmpty(FollowersDTO.pagination.cursor))
                     {

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TwitchRaid.Models
 {
-
+        internal class FollowerList
+        {
+            public List<Follower> follower { get; set; }
+        }
         internal class FollowersDTO
         {
             public List<Follower> data { get; set; }
@@ -22,7 +25,7 @@ namespace TwitchRaid.Models
             public string user_name { get; set; }
         }
 
-        public class Pagination
+        internal class Pagination
         {
             public string cursor { get; set; }
         }

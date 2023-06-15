@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TwitchRaid.Controller;
 using TwitchRaid.Handlers;
 using TwitchRaid.Models;
@@ -21,7 +22,9 @@ namespace TwitchRaid
 
             List<User> userId = users.GetUsers(setting, tokennew).Result;
 
-            start.EveryChannelFollower(setting);
+            
+
+            start.EveryChannelFollower(setting, tokennew);
         }
 
         private Setting Setup()
@@ -39,12 +42,39 @@ namespace TwitchRaid
             return setting;
         }
 
-        private void EveryChannelFollower(Setting setting)
+        private void EveryChannelFollower(Setting setting, string token)
         {
             GetChannelFollower followers = new();
+            FollowerList followerlist = new();
 
-            List<Follower> follwerslogin = followers.GetChannelFollowers(setting).Result;
+            followerlist.follower  = followers.GetChannelFollowers(setting).Result;
+
+            if(followerlist.follower == null  || followerlist.follower.Count == 0)
+            {
+                Console.WriteLine("You have No Followers o.O");
+                Environment.Exit(1000);
+            }
+
+            StreamersLive(setting, token, followerlist);
         }
 
+        private void StreamersLive(Setting setting, string token, FollowerList followerlist)
+        {
+            GetStreamers streams = new();
+            LiveStreamList liveStreamList = new ();
+            liveStreamList.streamers = streams.GetLiveStreams(setting, token, followerlist).Result;
+
+            if (liveStreamList.streamers == null || liveStreamList.streamers.Count == 0)
+            {
+                Console.WriteLine("No Body to Raid - _-");
+                Environment.Exit(1000);
+            }
+
+
+            foreach (var item in liveStreamList.streamers)
+            {
+                Console.WriteLine(item);
+            }
+        }
     }
 }
