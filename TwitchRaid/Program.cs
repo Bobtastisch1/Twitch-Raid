@@ -22,8 +22,6 @@ namespace TwitchRaid
 
             List<User> userId = users.GetUsers(setting, tokennew).Result;
 
-            
-
             start.EveryChannelFollower(setting, tokennew);
         }
 
@@ -70,11 +68,15 @@ namespace TwitchRaid
                 Environment.Exit(1000);
             }
 
+            SelectRadomStreamer(liveStreamList);
+        }
 
-            foreach (var item in liveStreamList.streamers)
-            {
-                Console.WriteLine(item);
-            }
+        private void SelectRadomStreamer(LiveStreamList liveStreamList)
+        {
+            Random random = new ();
+            int selectedStreamer = random.Next(liveStreamList.streamers.Count);
+
+            Console.WriteLine(liveStreamList.streamers[selectedStreamer]);
         }
     }
 }
