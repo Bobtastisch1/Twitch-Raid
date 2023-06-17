@@ -40,7 +40,7 @@ namespace TwitchRaid
             return setting;
         }
 
-        private void EveryChannelFollower(Setting setting, string token)
+        private async void EveryChannelFollower(Setting setting, string token)
         {
             GetChannelFollower followers = new();
             FollowerList followerlist = new();
@@ -68,15 +68,20 @@ namespace TwitchRaid
                 Environment.Exit(1000);
             }
 
-            SelectRadomStreamer(liveStreamList);
+             SelectRandomStreamer(setting, liveStreamList);
         }
 
-        private void SelectRadomStreamer(LiveStreamList liveStreamList)
+        private async Task SelectRandomStreamer(Setting setting, LiveStreamList liveStreamList)
         {
             Random random = new ();
             int selectedStreamer = random.Next(liveStreamList.streamers.Count);
 
             Console.WriteLine(liveStreamList.streamers[selectedStreamer]);
+
+            PostRaid postRaid = new PostRaid();
+
+            var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
         }
+
     }
 }
