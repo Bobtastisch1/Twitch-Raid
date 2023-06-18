@@ -52,7 +52,7 @@ namespace TwitchRaid
             if(followerlist.follower == null  || followerlist.follower.Count == 0)
             {
                 Console.WriteLine("You have No Followers o.O");
-                Environment.Exit(1000);
+                Console.ReadLine();
             }
 
             StreamersLive(setting, token, followerlist);
@@ -67,7 +67,7 @@ namespace TwitchRaid
             if (liveStreamList.streamers == null || liveStreamList.streamers.Count == 0)
             {
                 Console.WriteLine("No Body to Raid - _-");
-                Environment.Exit(1000);
+                Console.ReadLine();
             }
 
              SelectRandomStreamer(setting, liveStreamList);
@@ -85,7 +85,7 @@ namespace TwitchRaid
 
             var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
 
-            Environment.Exit(1000);
+            Console.ReadLine();
         }
 
     }
