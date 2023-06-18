@@ -17,7 +17,7 @@ namespace TwitchRaid.Controller
         {
             try
             {
-                string url = "https://api.twitch.tv/helix/raids?from_broadcaster_id=" + setting.user_id + "&to_broadcaster_id=" + to_broadcaster_id; //"https://api.twitch.tv/helix/raids?from_broadcaster_id=" + setting.user_id + "&to_broadcaster_id=132484755" + to_broadcaster_id;
+                string url = "https://api.twitch.tv/helix/raids?from_broadcaster_id=" + setting.user_id + "&to_broadcaster_id=" + to_broadcaster_id.user_id; //"https://api.twitch.tv/helix/raids?from_broadcaster_id=" + setting.user_id + "&to_broadcaster_id=132484755" + to_broadcaster_id;
                 HttpClient client = new();
                 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

@@ -76,8 +76,6 @@ namespace TwitchRaid
             Random random = new ();
             int selectedStreamer = random.Next(liveStreamList.streamers.Count);
 
-            Console.WriteLine(liveStreamList.streamers[selectedStreamer]);
-
             PostRaid postRaid = new PostRaid();
 
             var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
