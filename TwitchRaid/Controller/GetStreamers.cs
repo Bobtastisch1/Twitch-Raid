@@ -31,12 +31,20 @@ namespace TwitchRaid.Controller
 
                 while (userIdStartsAt < totalFollowers)
                 {
+
                     string url = "https://api.twitch.tv/helix/streams";
                     int maxID = Math.Min(maxSize, totalFollowers - userIdStartsAt);
 
                     for (int i = userIdStartsAt; i < userIdStartsAt + maxID; i++)
                     {
-                        url += "?user_id=" + followerlist.follower[i].user_id;
+                        if(i != 0)
+                        {
+                            url += "&user_id=" + followerlist.follower[i].user_id;
+                        }
+                        else
+                        {
+                            url += "?user_id=" + followerlist.follower[i].user_id;
+                        }
                     }
 
                     HttpResponseMessage res = await client.GetAsync(url);

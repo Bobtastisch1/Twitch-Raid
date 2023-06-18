@@ -20,7 +20,8 @@ namespace TwitchRaid
 
             GetUser users = new();
 
-            List<User> userId = users.GetUsers(setting, tokennew).Result;
+
+            List <User> userId = users.GetUsers(setting, tokennew).Result;
 
             start.EveryChannelFollower(setting, tokennew);
         }
