@@ -37,7 +37,7 @@ namespace TwitchRaid.Controller
 
                     for (int i = userIdStartsAt; i < userIdStartsAt + maxID; i++)
                     {
-                        if(i != 0)
+                        if(userIdStartsAt != i)
                         {
                             url += "&user_id=" + followerlist.follower[i].user_id;
                         }

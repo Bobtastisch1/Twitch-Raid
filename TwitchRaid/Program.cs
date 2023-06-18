@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using TwitchRaid.Controller;
 using TwitchRaid.Handlers;
@@ -77,9 +78,14 @@ namespace TwitchRaid
             Random random = new ();
             int selectedStreamer = random.Next(liveStreamList.streamers.Count);
 
+            string selectedStreamerUserName = liveStreamList.streamers[selectedStreamer].user_name;
+            Console.WriteLine("Raiding: " + selectedStreamerUserName);
+
             PostRaid postRaid = new PostRaid();
 
             var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
+
+            Environment.Exit(1000);
         }
 
     }
