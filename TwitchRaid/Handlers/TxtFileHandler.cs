@@ -29,15 +29,27 @@ namespace TwitchRaid.Handlers
             }
         }
 
-        public void WriteFile(string filePath)
+        public void WriteFile(string filePath, string name)
         {
-            using (StreamWriter sw = new(filePath, false))
+            if (name.Contains("Init.txt"))
             {
-                sw.WriteLine("ClientId:");
-                sw.WriteLine("ClientSecret:");
-                sw.WriteLine("YourStreamerName:");
-                sw.WriteLine("oauth:");
+                using (StreamWriter sw = new(filePath, false))
+                {
+                    sw.WriteLine("ClientId:");
+                    sw.WriteLine("ClientSecret:");
+                    sw.WriteLine("YourStreamerName:");
+                    sw.WriteLine("oauth:");
+                }
             }
+
+            if (name.Contains("Ban.txt"))
+            {
+                using (StreamWriter sw = new(filePath, false))
+                {
+                    sw.WriteLine("Ban:");
+                }
+            }
+
         }
 
         public Setting ReadFile(string filePath)
@@ -73,6 +85,16 @@ namespace TwitchRaid.Handlers
                                 break;
                         }
                     }
+                }
+
+                using var srBan = new StreamReader(filePath.Replace("Init.txt", "Ban.txt"));
+                setting.Ban = new List<string>();
+                string lineBan;
+
+                srBan.ReadLine(); //Skip First Line
+                while ((lineBan = srBan.ReadLine()) != null)
+                {
+                    setting.Ban.Add(lineBan.Trim());
                 }
             }
             catch (Exception e)

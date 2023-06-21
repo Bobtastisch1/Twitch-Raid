@@ -29,13 +29,22 @@ namespace TwitchRaid
 
         private Setting Setup()
         {
+
             string initPath = AppDomain.CurrentDomain.BaseDirectory + "Init.txt";
+            string StreamerBanList = AppDomain.CurrentDomain.BaseDirectory + "Ban.txt";
+
             TxtFileHandler filehandler = new();
 
             if (!filehandler.CheckIfFileExists(initPath))
             {
                 filehandler.CreateTxtFile(initPath);
-                filehandler.WriteFile(initPath);
+                filehandler.WriteFile(initPath, "Init.txt");
+            }
+
+            if (!filehandler.CheckIfFileExists(StreamerBanList))
+            {
+                filehandler.CreateTxtFile(StreamerBanList);
+                filehandler.WriteFile(StreamerBanList, "Ban.txt");
             }
 
             Setting setting = filehandler.ReadFile(initPath);
@@ -55,7 +64,27 @@ namespace TwitchRaid
                 Console.ReadLine();
             }
 
+            BanRemove(setting, followerlist);
+
             StreamersLive(setting, token, followerlist);
+        }
+
+        private void BanRemove(Setting setting, FollowerList followerlist)
+        {
+            List<Follower> followersToRemove = new List<Follower>();
+
+            foreach (var follower in followerlist.follower)
+            {
+                if (setting.Ban.Contains(follower.user_name))
+                {
+                    followersToRemove.Add(follower);
+                }
+            }
+
+            foreach (var followerToRemove in followersToRemove)
+            {
+                followerlist.follower.Remove(followerToRemove);
+            }
         }
 
         private void StreamersLive(Setting setting, string token, FollowerList followerlist)
@@ -83,7 +112,7 @@ namespace TwitchRaid
 
             PostRaid postRaid = new PostRaid();
 
-            var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
+            //var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
 
             Console.ReadLine();
         }

@@ -14,5 +14,7 @@ namespace TwitchRaid.Models
         public string user_id { get; set; }
         public string oauth { get; set; }
 
+        public List<string> Ban { get; set; }
+
     }
 }
