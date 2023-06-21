@@ -112,7 +112,7 @@ namespace TwitchRaid
 
             PostRaid postRaid = new PostRaid();
 
-            //var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
+            var raidList = postRaid.PostRaids(setting, liveStreamList.streamers[selectedStreamer]).Result;
 
             Console.ReadLine();
         }
