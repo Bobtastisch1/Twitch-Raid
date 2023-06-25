@@ -29,8 +29,6 @@ namespace TwitchRaid
 
         private Setting Setup()
         {
-            Console.ReadLine();
-            Console.WriteLine();
             string initPath = AppDomain.CurrentDomain.BaseDirectory + "Init.txt";
             string StreamerBanList = AppDomain.CurrentDomain.BaseDirectory + "Ban.txt";
 
