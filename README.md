@@ -9,7 +9,7 @@ TwitchRaid is a program that automatically checks all your followers on Twitch a
 # Setup
 
 Visit https://dev.twitch.tv/console and create a new application.
-Set the application's redirect URI to [http://localhost:3000] and make note of the generated Client ID and Client Secret.
+Set the application's redirect URI to http://localhost:3000 and make note of the generated Client ID and Client Secret.
 To obtain an OAuth token with the required scopes, use the following link:
 [https://id.twitch.tv/oauth2/authorize?response_type=token&client_id={{client-id}}&redirect_uri={{redirect_uri}}&scope=moderator%3Aread%3Afollowers+channel%3Amanage%3Araids]
 Replace {{client-id}} with your Client ID and {{redirect_uri}} with http://localhost:3000.
