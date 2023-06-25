@@ -40,7 +40,7 @@ Fill in the required details in the Init.txt file, including:
 Save the changes made to the Init.txt file.
 
 If you wish you don't want to Raid somebody put his Twitch name **lower case** example Bobtastisch2 => bobtastisch2
-- Ban:
+-- Ban:
 - bobtastisch2
 - xqc
 
