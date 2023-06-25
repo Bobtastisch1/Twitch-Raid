@@ -51,7 +51,7 @@ namespace TwitchRaid
 
             if(setting.oauth == "" || setting.ClientSecret == "" || setting.ClientID == "" || setting.YourStreamerName == "")
             {
-                Console.WriteLine("Fill in the Informations currectly in the Init.txt File");
+                Console.WriteLine("Fill in the Informations currectly in the Init.txt File ");
                 Console.ReadLine();
             }
 
