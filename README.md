@@ -39,13 +39,13 @@ Fill in the required details in the Init.txt file, including:
 - oauth: The Access Token you obtained from the Twitch OAuth link.
 Save the changes made to the Init.txt file.
 
-If you wish you don't want to Raid somebody put his Twitch name **lower case** example Bobtastisch2 => bobtastisch2
+If you don't want to raid somebody, add their Twitch name in **lower case** example Bobtastisch2 => bobtastisch2
  
  Ban:
  - bobtastisch2
  - xqc
  
-That's it! You should now have TwitchRaid set up and ready to use. Refer to the accompanying readme file on GitHub for further instructions and details.
+That's it! You should now have TwitchRaid set up and ready to use.
 
 Happy raiding on Twitch!
 
