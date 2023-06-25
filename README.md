@@ -28,7 +28,7 @@ Download the program from the GitHub repository as a zip file.
 Extract the contents to a preferred location on your computer.
 Inside the extracted folder, you will find an executable file with a cat logo.
 Run the program by executing the file.
-Upon running, the program will create an Init.txt file and a Ban.txt file.
+Upon running, the program will create an **Init.txt** file and a **Ban.txt** file.
 Close the program and open the Init.txt file.
 Fill in the required details in the Init.txt file, including:
 ClientId: Your Twitch Client ID obtained from the Twitch Developer Console.
