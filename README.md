@@ -1,4 +1,4 @@
-# TwitchRaid
+# Twitch-Raid
 
 You want to raid on Twitch but you're unsure who you should raid? No worries! Here's a simple program called TwitchRaid that can help you out.
 
