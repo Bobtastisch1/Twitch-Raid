@@ -3,16 +3,20 @@
 You want to raid on Twitch but you're unsure who you should raid? No worries! Here's a simple program called TwitchRaid that can help you out.
 
 #Program Overview
+
 TwitchRaid is a program that automatically checks all your followers on Twitch and creates a list of those who are currently live. From that list, one lucky streamer will be randomly chosen to receive the raid.
 
 #Setup
+
 Visit [https://dev.twitch.tv/console] and create a new application.
 Set the application's redirect URI to [http://localhost:3000] and make note of the generated Client ID and Client Secret.
 To obtain an OAuth token with the required scopes, use the following link:
 [https://id.twitch.tv/oauth2/authorize?response_type=token&client_id={{client-id}}&redirect_uri={{redirect_uri}}&scope=moderator%3Aread%3Afollowers+channel%3Amanage%3Araids]
 Replace {{client-id}} with your Client ID and {{redirect_uri}} with http://localhost:3000.
 When you click the link, Twitch will prompt you to log in with the account you wish to use for raiding (can be either your bot account or streaming account). After login, you will receive an Access Token. Save this token for later use.
+
 #Installation
+
 Download the program from the GitHub repository as a zip file.
 Extract the contents to a preferred location on your computer.
 Inside the extracted folder, you will find an executable file with a cat logo.
