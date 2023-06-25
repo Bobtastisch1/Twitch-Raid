@@ -48,6 +48,13 @@ namespace TwitchRaid
             }
 
             Setting setting = filehandler.ReadFile(initPath);
+
+            if(setting.oauth == null || setting.ClientSecret == null || setting.ClientID == null || setting.YourStreamerName == null)
+            {
+                Console.WriteLine("Fill in the Informations currectly in the Init.txt File");
+                Console.ReadLine();
+            }
+
             return setting;
         }
 
