@@ -11,5 +11,5 @@ All with just one button.
 
 #Setup
 
-Go to https://dev.twitch.tv/console and create an Application on [local host](http://localhost:3000)http://localhost:3000
+Go to https://dev.twitch.tv/console and create an Application on http://localhost:3000
 Save the Client-Id and Client-Secret
