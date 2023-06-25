@@ -38,7 +38,7 @@ Fill in the required details in the Init.txt file, including:
 - YourStreamerName: The name of your Twitch streamer account.
 - oauth: The Access Token you obtained from the Twitch OAuth link.
 
-After the **oauth:** there is a space
+After the **field:** double points there is a space
 Save the changes made to the Init.txt file.
 
 
