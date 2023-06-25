@@ -1,37 +1,31 @@
 # TwitchRaid
 
-You want to raid on Twitch and don't really know who you should raid.
+You want to raid on Twitch but you're unsure who you should raid? No worries! Here's a simple program called TwitchRaid that can help you out.
 
-Here is a simple program that checks all your followers on Twitch and gets those that are live in a list.
-
-From that list, one is randomly chosen and will get the raid.
-
-All with just one button.
-
+#Program Overview
+TwitchRaid is a program that automatically checks all your followers on Twitch and creates a list of those who are currently live. From that list, one lucky streamer will be randomly chosen to receive the raid.
 
 #Setup
-
-Go to https://dev.twitch.tv/console and create an Application on http://localhost:3000
-Save the Client-Id and Client-Secret
-
-For Loging in you need a oauth Token from Twitch with the right scopse thats the link for it
+Visit https://dev.twitch.tv/console and create a new application.
+Set the application's redirect URI to http://localhost:3000 and make note of the generated Client ID and Client Secret.
+To obtain an OAuth token with the required scopes, use the following link:
 https://id.twitch.tv/oauth2/authorize?response_type=token&client_id={{client-id}}&redirect_uri={{redirect_uri}}&scope=moderator%3Aread%3Afollowers+channel%3Amanage%3Araids
-replace the client-id with your Client-Id
-and redirect_uri with the [loca](http://localhost:3000)http://localhost:3000
+Replace {{client-id}} with your Client ID and {{redirect_uri}} with http://localhost:3000.
+When you click the link, Twitch will prompt you to log in with the account you wish to use for raiding (can be either your bot account or streaming account). After login, you will receive an Access Token. Save this token for later use.
+#Installation
+Download the program from the GitHub repository as a zip file.
+Extract the contents to a preferred location on your computer.
+Inside the extracted folder, you will find an executable file with a cat logo.
+Run the program by executing the file.
+Upon running, the program will create an Init.txt file and a Ban.txt file.
+Close the program and open the Init.txt file.
+Fill in the required details in the Init.txt file, including:
+ClientId: Your Twitch Client ID obtained from the Twitch Developer Console.
+ClientSecret: Your Twitch Client Secret obtained from the Twitch Developer Console.
+YourStreamerName: The name of your Twitch streamer account.
+oauth: The Access Token you obtained from the Twitch OAuth link.
+Save the changes made to the Init.txt file.
+That's it! You should now have TwitchRaid set up and ready to use. Refer to the accompanying readme file on GitHub for further instructions and details.
 
-Twitch will asked you to Login in the the Account you use for the Raid can be the Bot Account or your Streaming Account.
-At the link there will be the Access_Token save.
-
-#Installing the Programm
-
-Get it from Github in the zip File copy it somewhere on your Pc after that.
-There should be the Exe File with a Cat Logo on it.
-Start the programm it will create the Init.txt file and the Ban.txt file.
-The Programm will close and you should fill in the Init file your Saveed Client-id etc.
-"
-ClientId: 
-ClientSecret: 
-YourStreamerName: 
-oauth: 
-"
+Happy raiding on Twitch!
 
