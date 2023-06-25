@@ -31,10 +31,10 @@ Run the program by executing the file.
 Upon running, the program will create an **Init.txt** file and a **Ban.txt** file.
 Close the program and open the Init.txt file.
 Fill in the required details in the Init.txt file, including:
-ClientId: Your Twitch Client ID obtained from the Twitch Developer Console.
-ClientSecret: Your Twitch Client Secret obtained from the Twitch Developer Console.
-YourStreamerName: The name of your Twitch streamer account.
-oauth: The Access Token you obtained from the Twitch OAuth link.
+- ClientId: Your Twitch Client ID obtained from the Twitch Developer Console.
+- ClientSecret: Your Twitch Client Secret obtained from the Twitch Developer Console.
+- YourStreamerName: The name of your Twitch streamer account.
+- oauth: The Access Token you obtained from the Twitch OAuth link.
 Save the changes made to the Init.txt file.
 That's it! You should now have TwitchRaid set up and ready to use. Refer to the accompanying readme file on GitHub for further instructions and details.
 
