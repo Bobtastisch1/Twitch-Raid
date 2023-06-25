@@ -23,14 +23,15 @@ Twitch will asked you to Login in the the Account you use for the Raid can be th
 At the link there will be the Access_Token save.
 
 #Installing the Programm
+
 Get it from Github in the zip File copy it somewhere on your Pc after that.
 There should be the Exe File with a Cat Logo on it.
 Start the programm it will create the Init.txt file and the Ban.txt file.
 The Programm will close and you should fill in the Init file your Saveed Client-id etc.
-(
+"
 ClientId: 
 ClientSecret: 
 YourStreamerName: 
 oauth: 
-)
+"
 
