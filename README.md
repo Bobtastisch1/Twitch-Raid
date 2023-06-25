@@ -1,9 +1,9 @@
 # TwitchRaid
 
-You want to Raid on Twitch and don't realy know who you should raid.
+You want to raid on Twitch and don't really know who you should raid.
 
-Here is a simple Programm that checks all your Followers on Twitch and get those that are live in a List. 
+Here is a simple program that checks all your followers on Twitch and gets those that are live in a list.
 
-From that List one gets Randomly choisen and will get the Raid.
+From that list, one is randomly chosen and will get the raid.
 
-All with just one Button.
+All with just one button.
