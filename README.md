@@ -38,6 +38,8 @@ Fill in the required details in the Init.txt file, including:
 - YourStreamerName: The name of your Twitch streamer account.
 - oauth: The Access Token you obtained from the Twitch OAuth link.
 Save the changes made to the Init.txt file.
+
+If you wish you don't want to Raid somebody put his Twitch name **lower case** example Bobtastisch2 => bobtastisch2
 That's it! You should now have TwitchRaid set up and ready to use. Refer to the accompanying readme file on GitHub for further instructions and details.
 
 Happy raiding on Twitch!
