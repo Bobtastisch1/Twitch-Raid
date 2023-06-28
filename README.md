@@ -15,21 +15,19 @@ To obtain an OAuth token with the required scopes, use the following link:
 
 https://id.twitch.tv/oauth2/authorize?response_type=token&client_id={{client-id}}&redirect_uri={{redirect_uri}}&scope=moderator%3Aread%3Afollowers+channel%3Amanage%3Araids
 
-
 - Replace {{client-id}} with your Client ID
 - {{redirect_uri}} with http://localhost:3000.
-
 
 When you click the link, Twitch will prompt you to log in with the account you wish to use for raiding (can be either your bot account or streaming account). After login, you will receive an Access Token in the Link URL. Save this token for later use.
 
 # Installation
 
-Download the program from the GitHub repository as a zip file.
+Download the program from the GitHub repository on the right Release get the **.msi** file. 
 Extract the contents to a preferred location on your computer.
 Inside the extracted folder, you will find an executable file with a cat logo.
 Run the program by executing the file.
 
-Upon running, the program will create an **Init.txt** file and a **Ban.txt** file.
+Upon running, the program will create **Init.txt**, **Ban.txt**, **Favorite.txt** files.
 
 Close the program and open the Init.txt file.
 Fill in the required details in the Init.txt file, including:
@@ -41,7 +39,6 @@ Fill in the required details in the Init.txt file, including:
 
 After the **field:** double points there is a space
 Save the changes made to the Init.txt file.
-
 
 If you don't want to raid somebody, add their Twitch name in **lower case** example Bobtastisch2 => bobtastisch2
 
