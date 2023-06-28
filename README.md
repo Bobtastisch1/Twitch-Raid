@@ -37,13 +37,19 @@ Fill in the required details in the Init.txt file, including:
 - ClientSecret: Your Twitch Client Secret obtained from the Twitch Developer Console.
 - YourStreamerName: The name of your Twitch streamer account.
 - oauth: The Access Token you obtained from the Twitch OAuth link.
+- OnlyFavorite: True/False  If you only want to Raid your Friends or not **True** **False** Upercase 
 
 After the **field:** double points there is a space
 Save the changes made to the Init.txt file.
 
 
 If you don't want to raid somebody, add their Twitch name in **lower case** example Bobtastisch2 => bobtastisch2
- 
+
+Favorite.txt
+Favorite:
+ - yushia
+
+ Ban.txt
  Ban:
  - bobtastisch2
  - xqc
