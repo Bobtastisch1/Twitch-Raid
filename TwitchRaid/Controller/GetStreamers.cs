@@ -63,5 +63,54 @@ namespace TwitchRaid.Controller
             return streamlist;
         }
 
+        public async Task<List<Streams>> GetFavoriteLiveStreams(Setting setting, string token, FavoriteUserList favoritelist)
+        {
+            List<Streams> streamlist = new List<Streams>();
+            try
+            {
+                HttpClient client = new();
+
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                client.DefaultRequestHeaders.Add("Client-Id", setting.ClientID);
+
+                int FavoriteuserIdStartsAt = 0;
+                int maxSize = 100;
+                int totalFollowers = favoritelist.favorite.Count;
+
+                while (FavoriteuserIdStartsAt < totalFollowers)
+                {
+
+                    string url = "https://api.twitch.tv/helix/streams";
+                    int maxID = Math.Min(maxSize, totalFollowers - FavoriteuserIdStartsAt);
+
+                    for (int i = FavoriteuserIdStartsAt; i < FavoriteuserIdStartsAt + maxID; i++)
+                    {
+                        if (FavoriteuserIdStartsAt != i)
+                        {
+                            url += "&user_id=" + favoritelist.favorite[i].id;
+                        }
+                        else
+                        {
+                            url += "?user_id=" + favoritelist.favorite[i].id;
+                        }
+                    }
+
+                    HttpResponseMessage res = await client.GetAsync(url);
+                    res.EnsureSuccessStatusCode();
+                    string result = await res.Content.ReadAsStringAsync();
+                    LiveStreamsDTO liveStreamsDTO = JsonConvert.DeserializeObject<LiveStreamsDTO>(result);
+
+                    streamlist.AddRange(liveStreamsDTO.data);
+                    FavoriteuserIdStartsAt += maxID;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Get Users Error " + e.Message);
+            }
+            return streamlist;
+        }
+
     }
 }

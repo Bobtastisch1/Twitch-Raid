@@ -34,6 +34,7 @@ namespace TwitchRaid.Controller
             catch (Exception ex)
             {
                 Console.WriteLine("Access_Token Error " + ex.Message);
+                Console.WriteLine("This Streamers can't get Raided");
             }
 
 

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace TwitchRaid.Models
 {
+    internal class FavoriteUserList
+    {
+
+        public List<User> favorite { get; set; }
+
+    }
     internal class UsersDTO
     {
         public List<User> data { get; set; }

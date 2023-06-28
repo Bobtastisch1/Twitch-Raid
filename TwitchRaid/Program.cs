@@ -21,16 +21,24 @@ namespace TwitchRaid
 
             GetUser users = new();
 
-
             List <User> userId = users.GetUsers(setting, tokennew).Result;
 
-            start.EveryChannelFollower(setting, tokennew);
+            if (!setting.OnlyFavorite.Contains("True"))
+            {
+                start.EveryChannelFollower(setting, tokennew);
+            }
+            else
+            {
+                start.EveryFavorite(setting, tokennew);
+            }
+
         }
 
         private Setting Setup()
         {
             string initPath = AppDomain.CurrentDomain.BaseDirectory + "Init.txt";
             string StreamerBanList = AppDomain.CurrentDomain.BaseDirectory + "Ban.txt";
+            string FavoriteList = AppDomain.CurrentDomain.BaseDirectory + "Favorite.txt";
 
             TxtFileHandler filehandler = new();
 
@@ -46,6 +54,13 @@ namespace TwitchRaid
                 filehandler.WriteFile(StreamerBanList, "Ban.txt");
             }
 
+            if (!filehandler.CheckIfFileExists(FavoriteList))
+            {
+                filehandler.CreateTxtFile(StreamerBanList);
+                filehandler.WriteFile(FavoriteList, "Favorite.txt");
+            }
+
+
             Setting setting = filehandler.ReadFile(initPath);
 
             if(setting.oauth == "" || setting.ClientSecret == "" || setting.ClientID == "" || setting.YourStreamerName == "")
@@ -55,6 +70,25 @@ namespace TwitchRaid
             }
 
             return setting;
+        }
+
+        private async void EveryFavorite(Setting setting, string token)
+        {
+            GetUser favoriteUser = new GetUser();
+            FavoriteUserList favoriteList = new();
+            favoriteList.favorite = favoriteUser.GetFavorite(setting, token).Result;
+
+            GetStreamers streams = new();
+            LiveStreamList favoriteLiveStreamList = new();
+            favoriteLiveStreamList.streamers = streams.GetFavoriteLiveStreams(setting, token, favoriteList).Result;
+
+            if (favoriteLiveStreamList.streamers == null || favoriteLiveStreamList.streamers.Count == 0)
+            {
+                Console.WriteLine("No Body to Raid - _-");
+                Console.ReadLine();
+            }
+
+            SelectRandomStreamer(setting, favoriteLiveStreamList);
         }
 
         private async void EveryChannelFollower(Setting setting, string token)

@@ -39,6 +39,7 @@ namespace TwitchRaid.Handlers
                     sw.WriteLine("ClientSecret:");
                     sw.WriteLine("YourStreamerName:");
                     sw.WriteLine("oauth:");
+                    sw.WriteLine("OnlyFavorite: False");
                 }
             }
 
@@ -50,6 +51,13 @@ namespace TwitchRaid.Handlers
                 }
             }
 
+            if (name.Contains("Favorite.txt"))
+            {
+                using (StreamWriter sw = new(filePath, false))
+                {
+                    sw.WriteLine("Favorite:");
+                }
+            }
         }
 
         public Setting ReadFile(string filePath)
@@ -83,12 +91,16 @@ namespace TwitchRaid.Handlers
                             case "oauth":
                                 setting.oauth = value;
                                 break;
+                            case "OnlyFavorite":
+                                setting.OnlyFavorite = value;
+                                break;
                         }
                     }
                 }
 
                 using var srBan = new StreamReader(filePath.Replace("Init.txt", "Ban.txt"));
                 setting.Ban = new List<string>();
+                setting.Favorite = new List<string>();
                 string lineBan;
 
                 srBan.ReadLine(); //Skip First Line
@@ -96,6 +108,17 @@ namespace TwitchRaid.Handlers
                 {
                     setting.Ban.Add(lineBan.Trim());
                 }
+
+                using var srFavorite = new StreamReader(filePath.Replace("Init.txt", "Favorite.txt"));
+                setting.Ban = new List<string>();
+                string lineFavorite;
+
+                srFavorite.ReadLine(); //Skip First Line
+                while ((lineFavorite = srFavorite.ReadLine()) != null)
+                {
+                    setting.Favorite.Add(lineFavorite.Trim());
+                }
+
             }
             catch (Exception e)
             {
