@@ -45,11 +45,13 @@ If you don't want to raid somebody, add their Twitch name in **lower case** exam
 Favorite.txt
 
 Favorite:
+
 yushia
 
 Ban.txt
 
 Ban:
+
 xqc
  
 That's it! You should now have TwitchRaid set up and ready to use.
