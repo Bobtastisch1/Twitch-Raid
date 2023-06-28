@@ -42,13 +42,13 @@ Save the changes made to the Init.txt file.
 
 If you don't want to raid somebody, add their Twitch name in **lower case** example Bobtastisch2 => bobtastisch2
 
-Favorite.txt
+# Favorite.txt
 
--Favorite:
+Favorite:
 
--yushia
+yushia
 
-Ban.txt
+# Ban.txt
 
 Ban:
 
