@@ -100,7 +100,6 @@ namespace TwitchRaid.Handlers
 
                 using var srBan = new StreamReader(filePath.Replace("Init.txt", "Ban.txt"));
                 setting.Ban = new List<string>();
-                setting.Favorite = new List<string>();
                 string lineBan;
 
                 srBan.ReadLine(); //Skip First Line
@@ -110,7 +109,7 @@ namespace TwitchRaid.Handlers
                 }
 
                 using var srFavorite = new StreamReader(filePath.Replace("Init.txt", "Favorite.txt"));
-                setting.Ban = new List<string>();
+                setting.Favorite = new List<string>();
                 string lineFavorite;
 
                 srFavorite.ReadLine(); //Skip First Line
