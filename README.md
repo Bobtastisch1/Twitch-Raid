@@ -46,7 +46,7 @@ If you don't want to raid somebody, add their Twitch name in **lower case** exam
 
 Favorite:
 
-yushia
+xqc
 
 **Ban.txt**
 
