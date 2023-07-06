@@ -4,7 +4,7 @@ You want to raid on Twitch but you're unsure who you should raid? No worries! He
 
 # Help Video
 
-[link]https://youtu.be/qyDf7GtABNM
+[link] https://youtu.be/qyDf7GtABNM
 
 # Program Overview
 
