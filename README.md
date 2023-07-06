@@ -2,6 +2,10 @@
 
 You want to raid on Twitch but you're unsure who you should raid? No worries! Here's a simple program called TwitchRaid that can help you out.
 
+# Help Video
+
+[link]https://youtu.be/qyDf7GtABNM
+
 # Program Overview
 
 TwitchRaid is a program that automatically checks all your followers(Or just your best Streamer Friends with Favorite.txt) on Twitch and creates a list of those who are currently live. From that list, one lucky streamer will be randomly chosen to receive the raid.
